@@ -7,18 +7,16 @@ import {RouterLink} from 'vue-router'
     <RouterLink to='/'>
       <img :class='$style.logo' src='@/assets/img/logo.png'>
     </RouterLink>
-    <nav>
-      <ul :class='$style.links'>
-        <RouterLink to='/teams'>Teams</RouterLink>
-        <RouterLink to='/shop'>Shop</RouterLink>
-        <RouterLink to='/tracks'>Tracks</RouterLink>
-      </ul>
+    <nav :class='$style.links'>
+      <RouterLink to='/teams'>Teams</RouterLink>
+      <RouterLink to='/shop'>Shop</RouterLink>
+      <RouterLink to='/tracks'>Tracks</RouterLink>
     </nav>
-    <ul :class='$style.links'>
-      <a>Cart</a>
-      <a>SoundCloud</a>
-      <a>Telegram</a>
-    </ul>
+    <div :class='$style.links'>
+      <a><img :class='$style.icon' src='@/assets/icons/cart.svg'></a>
+      <a><img :class='$style.icon' src='@/assets/icons/soundcloud.svg'></a>
+      <a><img :class='$style.icon' src='@/assets/icons/telegram.svg'></a>
+    </div>
   </header>
 </template>
 
@@ -41,5 +39,8 @@ import {RouterLink} from 'vue-router'
   }
   .activeLink {
     background: red;
+  }
+  .icon {
+    width: 30px;
   }
 </style>
