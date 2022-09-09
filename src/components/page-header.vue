@@ -7,15 +7,29 @@ import {RouterLink} from 'vue-router'
     <RouterLink to='/'>
       <img :class='$style.logo' src='@/assets/img/logo.png'>
     </RouterLink>
-    <nav :class='$style.links'>
-      <RouterLink to='/teams'>Teams</RouterLink>
-      <RouterLink to='/shop'>Shop</RouterLink>
-      <RouterLink to='/tracks'>Tracks</RouterLink>
+    <nav :class="[$style.links, $style.navigation]">
+      <RouterLink to='/team' :active-class='$style.activeLink'>Команда</RouterLink>
+      <RouterLink to='/shop' :active-class='$style.activeLink'>Магазин</RouterLink>
+      <RouterLink to='/tracks' :active-class='$style.activeLink'>Треки</RouterLink>
     </nav>
     <div :class='$style.links'>
-      <a><img :class='$style.icon' src='@/assets/icons/cart.svg'></a>
-      <a><img :class='$style.icon' src='@/assets/icons/soundcloud.svg'></a>
-      <a><img :class='$style.icon' src='@/assets/icons/telegram.svg'></a>
+      <RouterLink to='/cart' :class='$style.iconWrapper'>
+        <img :class='$style.icon' src='@/assets/icons/cart.svg'>
+      </RouterLink>
+      <a
+        :class='$style.iconWrapper'
+        href='https://soundcloud.com/moneyfactura'
+        target='_blank'
+      >
+        <img :class='$style.icon' src='@/assets/icons/soundcloud.svg'>
+      </a>
+      <a
+        :class='[$style.iconWrapper, $style.telegramIcon]'
+        href='https://t.me/psychotecha'
+        target='_blank'
+      >
+        <img :class='$style.icon' src='@/assets/icons/telegram.svg'>
+      </a>
     </div>
   </header>
 </template>
@@ -23,10 +37,9 @@ import {RouterLink} from 'vue-router'
 <style module>
   .header {
     box-sizing: border-box;
-    padding: 44px 80px;
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    justify-content: center;
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
   }
   .logo {
@@ -38,9 +51,30 @@ import {RouterLink} from 'vue-router'
     gap: 60px;
   }
   .activeLink {
-    background: red;
+    text-decoration: underline;
+  }
+  .iconWrapper {
+    display: flex;
+    place-items: center;
   }
   .icon {
     width: 30px;
+  }
+  .telegramIcon {
+    transform: scale(0.8);
+  }
+  @media screen and (max-width: 1000px) {
+    .header {
+      padding: 20px;
+    }
+    .logo {
+      width: 128px;
+    }
+    .links {
+      gap: 12px;
+    }
+    .navigation {
+      display: none;
+    }
   }
 </style>
