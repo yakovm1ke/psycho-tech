@@ -501,6 +501,8 @@
 <style module>
   h2 {
     margin-top: 1em;
+    margin-bottom: 1em;
+    color: var(--colorExtra);
   }
   .track {
   }
