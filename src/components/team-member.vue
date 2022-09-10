@@ -1,8 +1,5 @@
 <script setup lang='ts'>
 const props = defineProps({
-  imageSrc: {
-    type: String
-  },
   fullName: {
     type: String,
     required: true
@@ -16,10 +13,11 @@ const props = defineProps({
 
 <template>
   <div :class='$style.teamMember'>
-    <img
+    <div
       :class="$style.image"
-      :href="imageSrc"
     >
+      <slot></slot>
+    </div>
     <div :class='$style.text'>
       <div :class='$style.fullName'>
         {{props.fullName}}
@@ -40,6 +38,7 @@ const props = defineProps({
     width: 160px;
     height: 160px;
     object-fit: cover;
+    display: flex;
   }
   .text {
     display: flex;

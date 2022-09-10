@@ -6,13 +6,13 @@
 <template>
   <h1>Рок-фестиваль  Психотека</h1>
   <p :class='$style.body'>
-    Triumph of life over death,joy of being over grief.<br/>
-    Real, talented and meaningful music over assembly line pop.
+    Трагедия моей свадьбы. Пасхальный кролик на пляже.<br/>
+    Ревность и лебеди. Психотека и жизнь…
   </p>
   <div :class='$style.buttonWrapper'>
-    <RouterLink to='/shop'>
+    <RouterLink to='/team'>
       <button :class='$style.button'>
-        Поддержать нас
+        О нашей команде
       </button>
     </RouterLink>
     <img :class='$style.spiders' src='@/assets/img/spiders.svg'>

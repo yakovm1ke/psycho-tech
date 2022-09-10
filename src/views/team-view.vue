@@ -9,25 +9,6 @@
     imageSrc?: string
   }
 
-  const teamMembers: ITeamMember[] = [
-    {
-      fullName: 'Адам Рожай',
-      profession: 'CEO',
-      imageSrc: ''
-    },
-    {
-      fullName: 'Якоб Михало',
-      profession: 'Арт-директор'
-    },
-    {
-      fullName: 'Аллен Стефанович',
-      profession: 'Продуктовый аналитик'
-    },
-    {
-      fullName: 'Ани Шуле',
-      profession: 'Продуктовый дизайнер'
-    },
-  ]
 </script>
 
 <template>
@@ -35,13 +16,33 @@
     <h1>Команда</h1>
     <div :class='$style.teamMembers'>
       <TeamMember
-        v-for="(teamMember, index) in teamMembers"
-        :key="index"
-        :full-name="teamMember.fullName"
-        :profession="teamMember.profession"
-        :image-src='teamMember.imageSrc'
+        :full-name="'Адам Рожай'"
+        :profession="'CEO'"
         :class='$style.teamMember'
-      />
+      >
+        <img src='@/assets/img/team/danya.png'>
+      </TeamMember>
+      <TeamMember
+        :full-name="'Якоб Михало'"
+        :profession="'Арт-директор'"
+        :class='$style.teamMember'
+      >
+        <img src='@/assets/img/team/misha.png'>
+      </TeamMember>
+      <TeamMember
+        :full-name="'Ален Стефанович'"
+        :profession="'Продуктовый аналитик'"
+        :class='$style.teamMember'
+      >
+        <img src='@/assets/img/team/stepa.png'>
+      </TeamMember>
+      <TeamMember
+        :full-name="'Ани Шуле'"
+        :profession="'Продуктовый дизайнер'"
+        :class='$style.teamMember'
+      >
+        <img src='@/assets/img/team/anya.png'>
+      </TeamMember>
     </div>
 
     <h1 :class='$style.title'>CEO</h1>
@@ -71,6 +72,12 @@
 
     <h3 :class='$style.subtitle'>Цейтнот</h3>
     <p :class='$style.paragraph'>Тоже очень хорошая группа, только тут нет Вадима.</p>
+
+    <RouterLink to='/tracks'>
+      <button :class='$style.button'>
+        Наши песни
+      </button>
+    </RouterLink>
   </PaddedPage>
 </template>
 
@@ -99,5 +106,18 @@
     width: 100%;
     object-fit: cover;
     display: flex;
+  }
+  .button {
+    margin-top: 2em;
+    font-family: inherit;
+    font-size: inherit;
+    background: var(--colorExtra);
+    padding: 14px 44px;
+    outline: none;
+    border: none;
+  }
+  .button:hover {
+    cursor: pointer;
+    filter: brightness(0.9);
   }
 </style>
