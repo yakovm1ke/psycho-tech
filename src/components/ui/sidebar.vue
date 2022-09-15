@@ -48,7 +48,8 @@ onMounted(() => {
     top: 0;
     height: 100vh;
     opacity: 0;
-    transition: all 300ms;
+    transition: right 300ms;
+    transition: opacity 300ms;
   }
   .sidebarShown {
     right: 0;
