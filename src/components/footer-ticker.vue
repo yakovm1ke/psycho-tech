@@ -1,11 +1,11 @@
 <script setup lang='ts'>
 const groups = [
-  'Группа Крысы',
-  'Фьюрио',
-  'Пулярес',
-  'Клуб Пыли',
-  'Цейтнот',
-  'Para Cuntuzi',
+	'Группа Крысы',
+	'Фьюрио',
+	'Пулярес',
+	'Клуб Пыли',
+	'Цейтнот',
+	'Para Cuntuzi',
 ]
 
 const groupsString = groups.join(' · ').concat(' · ')
@@ -14,12 +14,15 @@ const groupsString = groups.join(' · ').concat(' · ')
 <template>
   <img
     :class="$style.image"
-    src="@/assets/img/gorsh.png"
+    src="@/assets/img/repo.png"
   >
-  <footer :class='$style.footer'>
-    <div :class='$style.text'>
-      <span v-for="(n, index) in 10" :key="index">
-        {{ groupsString + ' '}}
+  <footer :class="$style.footer">
+    <div :class="$style.text">
+      <span
+        v-for="(n, index) in 10"
+        :key="index"
+      >
+        {{ groupsString + ' ' }}
       </span>
     </div>
   </footer>
@@ -34,11 +37,9 @@ const groupsString = groups.join(' · ').concat(' · ')
     object-fit: contain;
     bottom: 2em;
     right: 0;
-    /* bottom: 0; */
   }
   .footer {
     position: fixed;
-    /* margin-bottom: 2em; */
     padding: 0.2em 0 0.35em;
     color: var(--colorBackground);
     width: 100%;
@@ -46,7 +47,6 @@ const groupsString = groups.join(' · ').concat(' · ')
     left: 0;
     background: var(--colorExtra);
   }
-
   .text {
     font-family: 'Oswald', sans-serif;
     -webkit-animation: animMarqueeRtl 20s linear infinite;

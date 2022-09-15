@@ -1,6 +1,6 @@
 <template>
-  <div :class='$style.paddedPage'>
-    <slot></slot>
+  <div :class="$style.paddedPage">
+    <slot />
   </div>
 </template>
 

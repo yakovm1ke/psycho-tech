@@ -1,13 +1,13 @@
 <script setup lang='ts'>
 const props = defineProps({
-  fullName: {
-    type: String,
-    required: true
-  },
-  profession: {
-    type: String,
-    required: true,
-  }
+	fullName: {
+		type: String,
+		required: true,
+	},
+	profession: {
+		type: String,
+		required: true,
+	},
 })
 </script>
 

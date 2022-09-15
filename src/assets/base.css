@@ -4,6 +4,7 @@
 :root {
   --colorText: #fff;
   --colorBackground: #000;
+  --colorSidebar: #555;
   --colorGhost: #D9D9D9;
   --colorExtra: #B8AF7F;
 }
@@ -15,6 +16,7 @@
   margin: 0;
   position: relative;
   font-weight: normal;
+  font-family: inherit;
 }
 
 body {
@@ -23,9 +25,7 @@ body {
   color: var(--colorText);
   background: var(--colorBackground);
   line-height: 1.6;
-  /* font-family: 'BIZ UDGothic', sans-serif; */
   font-family: 'Oswald', sans-serif;
-
   font-size: 20px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

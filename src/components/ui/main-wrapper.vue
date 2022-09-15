@@ -6,12 +6,12 @@
 
 <style module>
   .main {
-    padding: 120px 80px;
+    padding: 40px 80px 80px;
   }
 
   @media (max-width: 1000px) {
     .main {
-      padding: 40px 20px 140px;
+      padding: 40px 20px 80px;
     }
   }
 </style>

@@ -1,37 +1,119 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
 import {RouterLink} from 'vue-router'
+import Sidebar from '@/components/ui/sidebar.vue'
+import router from '@/router'
+
+const isSidebarOpen = ref(false)
+
+function toggleSidebar() {
+	isSidebarOpen.value = !isSidebarOpen.value
+}
+
+router.beforeEach(() => {
+	isSidebarOpen.value = false
+})
 </script>
 
 <template>
-  <header :class='$style.header'>
-    <RouterLink to='/'>
-      <img :class='$style.logo' src='@/assets/img/logo.png'>
+  <header :class="$style.header">
+    <RouterLink to="/">
+      <img
+        :class="$style.logo"
+        src="@/assets/img/logo.png"
+      >
     </RouterLink>
     <nav :class="[$style.links, $style.navigation]">
-      <RouterLink to='/team' :active-class='$style.activeLink'>Команда</RouterLink>
-      <!-- <RouterLink to='/shop' :active-class='$style.activeLink'>Магазин</RouterLink> -->
-      <RouterLink to='/tracks' :active-class='$style.activeLink'>Треки</RouterLink>
+      <RouterLink
+        to="/team"
+        :active-class="$style.activeLink"
+      >
+        Команда
+      </RouterLink>
+      <RouterLink
+        to="/shop"
+        :active-class="$style.activeLink"
+      >
+        Магазин
+      </RouterLink>
+      <RouterLink
+        to="/tracks"
+        :active-class="$style.activeLink"
+      >
+        Треки
+      </RouterLink>
     </nav>
-    <div :class='$style.links'>
-      <!-- <RouterLink to='/cart' :class='$style.iconWrapper'>
-        <img :class='$style.icon' src='@/assets/icons/cart.svg'>
+    <div :class="$style.links">
+      <!-- <RouterLink
+        to="/cart"
+        :class="$style.iconWrapper"
+      >
+        <img
+          :class="$style.icon"
+          src="@/assets/icons/cart.svg"
+        >
       </RouterLink> -->
       <a
-        :class='$style.iconWrapper'
-        href='https://soundcloud.com/psycho_tech'
-        target='_blank'
+        :class="$style.iconWrapper"
+        href="https://soundcloud.com/psycho_tech"
+        target="_blank"
       >
-        <img :class='$style.icon' src='@/assets/icons/soundcloud.svg'>
+        <img
+          :class="$style.icon"
+          src="@/assets/icons/soundcloud.svg"
+        >
       </a>
       <a
-        :class='[$style.iconWrapper, $style.telegramIcon]'
-        href='https://t.me/psychotecha'
-        target='_blank'
+        :class="[$style.iconWrapper, $style.telegramIcon]"
+        href="https://t.me/psychotecha"
+        target="_blank"
       >
-        <img :class='$style.icon' src='@/assets/icons/telegram.svg'>
+        <img
+          :class="$style.icon"
+          src="@/assets/icons/telegram.svg"
+        >
       </a>
+      <button
+        :class="$style.burger"
+        @click="toggleSidebar()"
+      >
+        <img
+          :class="$style.icon"
+          src="@/assets/icons/burger.svg"
+        >
+      </button>
     </div>
   </header>
+  <Sidebar
+    v-if="isSidebarOpen"
+    :class="$style.sidebar"
+    @close="toggleSidebar()"
+  >
+    <RouterLink
+      to="/"
+      :active-class="$style.activeLink"
+    >
+      Главная
+    </RouterLink>
+    <RouterLink
+      to="/shop"
+      :active-class="$style.activeLink"
+    >
+      Магазин
+    </RouterLink>
+    <RouterLink
+      to="/team"
+      :active-class="$style.activeLink"
+    >
+      Команда
+    </RouterLink>
+    <RouterLink
+      to="/tracks"
+      :active-class="$style.activeLink"
+    >
+      Треки
+    </RouterLink>
+  </Sidebar>
 </template>
 
 <style module>
@@ -63,6 +145,18 @@ import {RouterLink} from 'vue-router'
   .telegramIcon {
     transform: scale(0.8);
   }
+  .burger {
+    display: none;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  .burger:hover {
+    cursor: pointer;
+  }
+  .sidebar {
+    display: none;
+  }
   @media screen and (max-width: 1000px) {
     .header {
       padding: 20px;
@@ -71,10 +165,16 @@ import {RouterLink} from 'vue-router'
       width: 128px;
     }
     .links {
-      gap: 12px;
+      gap: 1.2em;
     }
     .navigation {
       display: none;
+    }
+    .burger {
+      display: block;
+    }
+    .sidebar {
+      display: block;
     }
   }
 </style>
