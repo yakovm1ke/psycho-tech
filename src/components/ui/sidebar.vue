@@ -1,6 +1,13 @@
 <script setup lang='ts'>
 import { onMounted } from 'vue'
 
+defineProps({
+	isShown: {
+		type: Boolean,
+		required: true,
+	},
+})
+
 const emit = defineEmits(['close'])
 
 onMounted(() => {
@@ -14,19 +21,18 @@ onMounted(() => {
 
 <template>
   <div
-    :class="$style.sidebarWrapper"
+    :class="[$style.sidebarWrapper, {[$style.sidebarShown]: isShown}]"
     @click="emit('close')"
   >
     <div
-      :class="$style.sidebar"
+      :class="[$style.sidebar, {[$style.show]: isShown}]"
       @click="$event.stopPropagation()"
     >
-      <button
+      <img
         :class="$style.cross"
+        src="@/assets/icons/cross.svg"
         @click="emit('close')"
       >
-        ✖
-      </button>
       <slot />
     </div>
   </div>
@@ -38,15 +44,22 @@ onMounted(() => {
     background: rgba(0, 0, 0, 80%);
     position: fixed;
     width: 100vw;
+    right: -100vw;
     top: 0;
-    right: 0;
     height: 100vh;
+    opacity: 0;
+    transition: all 300ms;
+  }
+  .sidebarShown {
+    right: 0;
+    opacity: 1;
   }
   .sidebar {
     background: var(--colorSidebar);
     position: absolute;
     top: 0;
     right: 0;
+    transform: translateX(100%);
     width: 100vw;
     max-width: 320px;
     min-height: 100vh;
@@ -55,15 +68,20 @@ onMounted(() => {
     flex-direction: column;
     gap: 1em;
     font-size: 1.4em;
+    transition: transform 300ms;
   }
   .cross {
     border: none;
     padding: 0;
     font-size: inherit;
     color: inherit;
+    width: 1em;
     margin: 0 100%;
   }
   .cross:hover {
     cursor: pointer;
+  }
+  .show {
+    transform: translateX(0%);
   }
 </style>

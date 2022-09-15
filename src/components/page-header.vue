@@ -6,12 +6,16 @@ import router from '@/router'
 
 const isSidebarOpen = ref(false)
 
-function toggleSidebar() {
-	isSidebarOpen.value = !isSidebarOpen.value
+function hideSidebar() {
+	isSidebarOpen.value = false
+}
+
+function showSidebar() {
+	isSidebarOpen.value = true
 }
 
 router.beforeEach(() => {
-	isSidebarOpen.value = false
+	hideSidebar()
 })
 </script>
 
@@ -75,7 +79,7 @@ router.beforeEach(() => {
       </a>
       <button
         :class="$style.burger"
-        @click="toggleSidebar()"
+        @click="showSidebar()"
       >
         <img
           :class="$style.icon"
@@ -85,9 +89,9 @@ router.beforeEach(() => {
     </div>
   </header>
   <Sidebar
-    v-if="isSidebarOpen"
+    :is-shown="isSidebarOpen"
     :class="$style.sidebar"
-    @close="toggleSidebar()"
+    @close="hideSidebar()"
   >
     <RouterLink
       to="/"
@@ -174,7 +178,7 @@ router.beforeEach(() => {
       display: block;
     }
     .sidebar {
-      display: block;
+      display: inherit;
     }
   }
 </style>
