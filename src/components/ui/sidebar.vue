@@ -44,15 +44,14 @@ onMounted(() => {
     background: rgba(0, 0, 0, 80%);
     position: fixed;
     width: 100vw;
-    right: -100vw;
     top: 0;
     height: 100vh;
+    visibility: hidden;
     opacity: 0;
-    transition: right 300ms;
-    transition: opacity 300ms;
+    transition: all 300ms;
   }
   .sidebarShown {
-    right: 0;
+    visibility: visible;
     opacity: 1;
   }
   .sidebar {

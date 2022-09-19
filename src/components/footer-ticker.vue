@@ -35,7 +35,7 @@ const groupsString = groups.join(' · ').concat(' · ')
     width: 50%;
     max-height: 70%;
     object-fit: contain;
-    bottom: 2em;
+    bottom: 1em;
     right: 0;
   }
   .footer {
