@@ -48,7 +48,7 @@ onMounted(() => {
     height: 100vh;
     visibility: hidden;
     opacity: 0;
-    transition: all 300ms;
+    transition: all 200ms;
   }
   .sidebarShown {
     visibility: visible;
@@ -68,7 +68,7 @@ onMounted(() => {
     flex-direction: column;
     gap: 1em;
     font-size: 1.4em;
-    transition: transform 300ms;
+    transition: transform 200ms;
   }
   .cross {
     border: none;

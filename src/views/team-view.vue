@@ -2,6 +2,10 @@
 import TeamMember from '@/components/team-member.vue'
 import PaddedPage from '@/components/ui/padded-page.vue'
 import boss from '@/assets/img/team/boss.jpg'
+import danya from '@/assets/img/team/danya.png'
+import misha from '@/assets/img/team/misha.png'
+import stepa from '@/assets/img/team/stepa.png'
+import anya from '@/assets/img/team/anya.png'
 
 export type ITeamMember = {
   fullName: string,
@@ -19,30 +23,26 @@ export type ITeamMember = {
         :full-name="'Адам Рожай'"
         :profession="'CEO'"
         :class="$style.teamMember"
-      >
-        <img src="@/assets/img/team/danya.png">
-      </TeamMember>
+        :photo-src="danya"
+      />
       <TeamMember
         :full-name="'Якоб Михало'"
         :profession="'Арт-директор'"
         :class="$style.teamMember"
-      >
-        <img src="@/assets/img/team/misha.png">
-      </TeamMember>
+        :photo-src="misha"
+      />
       <TeamMember
         :full-name="'Ален Стефанович'"
         :profession="'Продуктовый аналитик'"
         :class="$style.teamMember"
-      >
-        <img src="@/assets/img/team/stepa.png">
-      </TeamMember>
+        :photo-src="stepa"
+      />
       <TeamMember
         :full-name="'Ани Шуле'"
         :profession="'Продуктовый дизайнер'"
         :class="$style.teamMember"
-      >
-        <img src="@/assets/img/team/anya.png">
-      </TeamMember>
+        :photo-src="anya"
+      />
     </div>
 
     <h1 :class="$style.title">
@@ -66,7 +66,7 @@ export type ITeamMember = {
       Группа Крысы
     </h3>
     <p :class="$style.paragraph">
-      Все участники Группы Крысы родом из Чехословакии. Они провели в нищете детство и остаются нищими до сих пор. Судьба разбросала их по разным углам Восточной Европы, однако одно остается неизменным: все участники группы хранят девственность и всегда готовы бросить вызов миру своими провокационными текстами и  душераздирающим музыкальным рядом. С недавних пор основной вокалист группы Влади Риепо скрывается от правосудия в погребе в Болгарии (59.927333, 30.241173).
+      Все участники Группы Крысы родом из Чехословакии. Они провели в нищете детство и остаются нищими до сих пор. Судьба разбросала их по разным углам Восточной Европы, однако одно остается неизменным: все участники группы хранят девственность и всегда готовы бросить вызов миру своими провокационными текстами и  душераздирающим музыкальным рядом. С недавних пор основной вокалист группы Влади Риепо скрывается от правосудия в погребе в Болгарии.
     </p>
 
     <h3 :class="$style.subtitle">

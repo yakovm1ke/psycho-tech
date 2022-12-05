@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import PaddedPage from '../components/ui/padded-page.vue'
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
@@ -12,6 +13,9 @@ import PaddedPage from '../components/ui/padded-page.vue'
       404
     </div>
     <div>НИЧЕГО НЕ НАЙДЕНО</div>
+    <RouterLink to="/">
+      НА ГЛАВНУЮ
+    </RouterLink>
   </PaddedPage>
 </template>
 

@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
-import {RouterLink} from 'vue-router'
+import { RouterLink } from 'vue-router'
 import Sidebar from '@/components/ui/sidebar.vue'
 import router from '@/router'
 
@@ -127,6 +127,7 @@ router.beforeEach(() => {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 100;
   }
   .logo {
     width: 160px;

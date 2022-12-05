@@ -80,6 +80,8 @@ function toggleShown() {
   position: sticky;
   top: 0;
   z-index: 99;
+  gap: 10px;
+  text-align: left;
 }
 .button:hover {
   cursor: pointer;
@@ -91,7 +93,7 @@ function toggleShown() {
 }
 .lyricsWrapper {
   overflow: hidden;
-  transition: all 300ms;
+  transition: all 200ms;
   height: 0px;
 }
 .lyrics {
@@ -102,7 +104,7 @@ function toggleShown() {
   width: 1em;
   height: 100%;
   transform: rotate(90deg);
-  transition: transform 300ms;
+  transition: transform 200ms;
 }
 .openedChevron {
   transform: rotate(270deg);
